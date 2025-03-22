@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JokeController {
     private final JokeService jokeService = new JokeServiceImpl();
 
-    @GetMapping("/")
-    public String getJoke(Model model) {
+    @GetMapping({"/", ""})
+    public String showJoke(Model model) {
         model.addAttribute("joke", jokeService.getJoke());
-        return "joke";  // Thymeleaf template name
+        return "index";  // Thymeleaf template name
     }
 }
